@@ -33,8 +33,9 @@ def main():
             if filepath.name != 'setup.py':
                 continue
             text = filehandle.read()
-            if ('install_requires' in text and
-               'install_requires=[]' not in text):
+            if ("name='q2studio'" not in text and
+                    'install_requires' in text and
+                    'install_requires=[]' not in text):
                 errors.append("Package dependencies should be stored in a "
                               "conda recipe instead of setup.py "
                               "`install_requires`.")
